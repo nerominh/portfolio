@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nero — Portfolio</title>
+  <meta name="description" content="Personal portfolio — Nero, CS student" />
+
+  <!-- Simple, clean CSS baseline -->
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      --max-width: 1000px;
+      --radius: 12px;
+      --gap: 1.25rem;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg), #071024 80%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:2rem 1rem;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      font-size:16px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:var(--gap);
+      margin-bottom:1.5rem;
+    }
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .logo{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#34d399);
+      display:grid;place-items:center;font-weight:700;color:#032018
+    }
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    main{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:1.25rem;
+      border-radius:var(--radius);
+      box-shadow:0 6px 30px rgba(2,6,23,0.6);
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:var(--gap);
+      align-items:center;
+      margin-bottom:1.25rem;
+    }
+    .title{font-size:clamp(1.35rem,2.6vw,2rem);margin:0}
+    .subtitle{color:var(--muted);margin-top:.25rem}
+
+    .card{background:var(--card);padding:1rem;border-radius:10px}
+
+    /* Projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .project-card{padding:1rem;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .project-card h4{margin:.25rem 0}
+    .project-card p{color:var(--muted);font-size:.95rem}
+    .btn{display:inline-block;padding:.45rem .7rem;border-radius:8px;background:linear-gradient(90deg,var(--accent),#34d399);color:#022017;font-weight:700;text-decoration:none}
+
+    footer{margin-top:1.25rem;color:var(--muted);font-size:.95rem;text-align:center}
+
+    /* Responsive nav for small screens */
+    .menu-toggle{display:none}
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr}
+      nav ul{display:none}
+      .menu-toggle{display:inline-block;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:.4rem;border-radius:8px;color:var(--muted)}
+      .nav-open nav ul{display:flex;flex-direction:column;gap:.5rem;margin-top:.75rem}
+    }
+
+    /* Small utilities */
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:.75rem;align-items:center}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <div style="font-weight:700">Nero</div>
+          <div class="muted" style="font-size:.9rem">Second-year CS • Portfolio</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="menu-toggle" aria-expanded="false" id="menuBtn">☰</button>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div>
+          <h1 class="title">Hi — I'm Nero</h1>
+          <p class="subtitle">Second-year Computer Science student. I build small web apps and learn machine learning. This site will show projects I make.</p>
+          <div style="margin-top:.9rem">
+            <a class="btn" href="#projects">See projects</a>
+          </div>
+        </div>
+        <div class="card">
+          <p style="margin:0"><strong>Quick facts</strong></p>
+          <ul style="margin:.6rem 0 .1rem 1.1rem;color:var(--muted)">
+            <li>Languages: Java, Python, JavaScript</li>
+            <li>Stack: HTML/CSS, React (learning)</li>
+            <li>Location: Vietnam</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:1rem" class="card">
+        <h3 style="margin:0 0 .35rem 0">About me</h3>
+        <p class="muted">Short paragraph that explains who you are, what you study, and what type of projects you're interested in. Keep this 2–4 lines long.</p>
+      </section>
+
+      <section id="projects" style="margin-top:1rem">
+        <h3 style="margin-bottom:.5rem">Projects</h3>
+        <div class="projects">
+          <!-- Example project card. Copy / paste to add more -->
+          <article class="project-card">
+            <h4>Project Title</h4>
+            <p class="muted">Short one-line description. Technologies used: HTML, CSS, JS.</p>
+            <div style="margin-top:.6rem">
+              <a class="btn" href="#">View code</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h4>Another Project</h4>
+            <p class="muted">Small description — e.g. a REST API built with Node or a small ML demo.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:1rem" class="card">
+        <h3 style="margin:0 0 .35rem 0">Contact</h3>
+        <p class="muted">Email: <a href="mailto:you@example.com">you@example.com</a> • GitHub: <a href="https://github.com/YOUR_USERNAME" target="_blank">@YOUR_USERNAME</a></p>
+      </section>
+
+      <footer>
+        Built with ❤️ — Replace content and add projects as you go.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Simple mobile nav toggle
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn && menuBtn.addEventListener('click', ()=>{
+      const root = document.documentElement;
+      const body = document.querySelector('.container');
+      const open = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!open));
+      document.body.classList.toggle('nav-open');
+      // Also toggle a class on container so CSS can show nav in small screens
+      document.querySelector('header').classList.toggle('nav-open');
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href === '#') return;
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
